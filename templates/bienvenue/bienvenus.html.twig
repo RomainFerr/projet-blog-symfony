@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{#   {% block title %}Hello BienvenueController!{% endblock %}#}
+
+{% block body %}
+    <h1>Bienvenue</h1>
+    <ul>
+        {% for user in noms %}
+            <li>{{ user }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ path('app_bienvenue') }}">Bienvenue</a>
+{% endblock %}
