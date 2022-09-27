@@ -7,7 +7,7 @@
     <div class="container">
     <ul class="list-group ">
         {% for article in articles %}
-           <a class="list-group-item list-group-item-action list-group-item-dark m-2" href="{{ path('app_article_slug',{'slug': article.slug}) }}"><p>{{ article.titre }}</p></a>
+           <a class="list-group-item list-group-item-action list-group-item-dark m-2 badge" href="{{ path('app_article_slug',{'slug': article.slug}) }}"><p>{{ article.titre }}</p></a>
         {% endfor %}
     </ul></div>
 {% endblock %}

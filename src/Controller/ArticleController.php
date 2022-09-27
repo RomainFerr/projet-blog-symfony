@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\ArticleRepository;
+use App\Repository\CategorieRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,6 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArticleController extends AbstractController
 {
     private ArticleRepository $articleRepository;
+
     //demander à symfony d'injecter une instance de ArticleRepository a la creation du controle, cad instance de article controller
     public function __construct(ArticleRepository $articleRepository)
     {
@@ -43,9 +45,10 @@ class ArticleController extends AbstractController
     {
 
         $article = $this->articleRepository->findOneBy(["slug"=>$slug]);
+        $categorie = $article->getCategorie()->getTitre();
 
         return $this->render('article/article.html.twig' , [
-            "article"=>$article
+            "article"=>$article, "categorie"=>$categorie
         ]);
     }
 }

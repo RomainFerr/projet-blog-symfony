@@ -4,6 +4,9 @@
 
 {% block body %}
     <h1>{{ article.titre }}</h1>
-    <p class="fst-italic">Créé le : {{ article.createdAt |date("d/m/Y")}}</p>
-    <p>{{ article.contenu }} </p>
+   <div class="mb-2"> <p class="fst-italic">Créé le : {{ article.createdAt |date("d/m/Y")}}</p>
+    <a href="" class="badge bagde-dark bg-secondary text-decoration-none">{{ categorie }}</a>
+   </div>
+    <div>
+    <p>{{ article.contenu }} </p></div>
 {% endblock %}
