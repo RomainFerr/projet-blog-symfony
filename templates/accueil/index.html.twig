@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-6">
+    <h3 class="h1 mt-2 mb-2">Bienvenue sur le Blog</h3>
+    <p><span>Accusantium autem commodi consectetur deserunt dolorum error est fugit harum inventore ipsam ipsum iste itaque iure, libero minima minus nihil non perspiciatis possimus quae reprehenderit rerum sint totam ut, vel.</span><span>Consequatur dignissimos explicabo iste modi tempore. Accusantium aliquam aliquid aut blanditiis distinctio, est facilis fuga laudantium maxime mollitia odit praesentium quae ratione recusandae reprehenderit rerum, sapiente voluptatibus voluptatum. Adipisci, fugiat?</span></p>
+        </div>
+        <div class="col-1">
+
+        </div>
+        <div class="col-5">
+    <h3 class="mt-2 mb-2">Les 10 derniers articles publiés</h3>
+    <ul class="list-group m-2">
+        {% for article in articles %}
+            <a class="list-group-item list-group-item-action list-group-item-dark m-2" href="{{ path('app_article_slug',{'slug': article.slug}) }}">{{ article.titre }}</a>
+        {% endfor %}
+    </ul></div>
+    </div>
+{% endblock %}

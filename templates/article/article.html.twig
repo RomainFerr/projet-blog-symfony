@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Articles{% endblock %}
+
+{% block body %}
+    <h1>{{ article.titre }}</h1>
+    <p class="fst-italic">Créé le : {{ article.createdAt |date("d/m/Y")}}</p>
+    <p>{{ article.contenu }} </p>
+{% endblock %}
