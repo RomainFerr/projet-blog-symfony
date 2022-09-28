@@ -5,7 +5,7 @@
 {% block body %}
     <h1>{{ article.titre }}</h1>
    <div class="mb-2"> <p class="fst-italic">Créé le : {{ article.createdAt |date("d/m/Y")}}</p>
-    <a href="" class="badge bagde-dark bg-secondary text-decoration-none">{{ categorie }}</a>
+    <a href="{{ path('app_categorie_slug',{'slug': article.categorie.slug}) }}" class="badge bagde-dark bg-secondary text-decoration-none">{{ article.categorie.titre }}</a>{# Chargement paresseux -> Lazy Loading#}
    </div>
     <div>
     <p>{{ article.contenu }} </p></div>

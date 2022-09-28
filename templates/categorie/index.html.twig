@@ -1,13 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Liste des Articles{% endblock %}
+{% block title %}Liste des Categories{% endblock %}
 
 {% block body %}
     <h1>Liste des Catégories</h1>
     <div class="container">
         <ul class="list-group ">
             {% for categorie in categories %}
-              <a class="list-group-item list-group-item-action list-group-item-dark m-2 badge" href="{{ path('app_categorie_slug',{'slug': categorie.slug}) }}"><p>{{ categorie.titre }}</p></a>
+             <a class="list-group-item list-group-item-secondary m-1 d-flex justify-content-between rounded align-items-center border-0"  href="{{ path('app_categorie_slug',{'slug': categorie.slug}) }}">
+                 <p>{{ categorie.titre }} ({{ categorie.articles | length }} articles)</p>
+                 <p class="btn btn-primary">Voir</p></a>
             {% endfor %}
         </ul></div>
 {% endblock %}

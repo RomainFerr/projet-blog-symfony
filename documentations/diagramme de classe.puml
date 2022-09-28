@@ -11,7 +11,21 @@ class Categorie{
 -titre:string
 -slug:string
 }
+class Commentaire{
+-id:int
+-contenu:string
+-dateCreation:datetime
+-auteur:utilisateur
+}
+class Utilisateur{
+-id:int
+-prenom:string
+-nom:string
+-pseudo:string
+}
 
+Commentaire"0..* "--"0..1 "Utilisateur
+Article"1..1 "--"0..* "Commentaire
 Article"0..* "--"0..1 "Categorie
 
 @enduml

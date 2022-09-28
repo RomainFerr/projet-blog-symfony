@@ -27,12 +27,12 @@ class CategorieController extends AbstractController
     }
 
     #[Route('/categorie/{slug}', name: 'app_categorie_slug')]
-    public function getCategorie(): Response
+    public function getCategorie($slug): Response
     {
-       // $categorie=$this->categorieRepository->findOneBy([],['slug'=>$slug]);
-     //$articles=$categorie->getArticles();
+        $categorie=$this->categorieRepository->findOneBy(['slug'=>$slug]);
+
         return $this->render('categorie/categorie.html.twig',[
-                //"categorie"=>$categorie,"articles"=>$articles
+                "categorie"=>$categorie
             ]
         );
     }
