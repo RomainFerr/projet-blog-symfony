@@ -31,11 +31,13 @@ class ArticleFixtures extends Fixture implements DependentFixtureInterface
                  ->setContenu($faker->paragraphs(3,true))
                 ->setCreatedAt($faker->dateTimeBetween('-6month'))
                 ->setSlug($this->slugger->slug($article->getTitre())->lower());
+
         //associer l'article a une categorie
             //recuperer une reference d'une categorie
             $numCategorie= $faker->numberBetween(0,8);
             $article->setCategorie($this->getReference("categorie".$numCategorie));
 
+            $this->addReference("article".$i,$article);
             //généré l'ordre INSERT
 
         $manager->persist($article); //INSERT INTO article values ("Titre 1","Contenu article 1")
