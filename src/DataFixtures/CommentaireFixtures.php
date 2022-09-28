@@ -17,13 +17,17 @@ class CommentaireFixtures extends Fixture implements DependentFixtureInterface
         for($i=0;$i<=200;$i++){
 
             $numArticle= $faker->numberBetween(0,99);
-            $numUser= $faker->numberBetween(0,150);
+            $numUser= $faker->numberBetween(0,155);
 
             $commentaire=new Commentaire();
             $commentaire->setContenu($faker->paragraphs(3,true))
                         ->setCreatedAt($faker->dateTimeBetween('-6month'))
-                        ->setArticle($this->getReference("article".$numArticle))
-                        ->setUtilisateur($this->getReference("utilisateur".$numUser) );
+                        ->setArticle($this->getReference("article".$numArticle));
+if ($numUser>151) {
+$commentaire->setUtilisateur(NULL);
+}else{
+    $commentaire->setUtilisateur($this->getReference("utilisateur" . $numUser));
+}
 
             $manager->persist($commentaire);
         }

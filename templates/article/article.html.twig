@@ -4,7 +4,7 @@
 
 {% block body %}
     <h1>{{ article.titre }}</h1>
-   <div class="mb-2"> <p class="fst-italic">Créé le : {{ article.createdAt |date("d/m/Y")}}</p>
+   <div class="mb-4"> <p class="fst-italic">Créé le : {{ article.createdAt |date("d/m/Y")}}</p>
     <a href="{{ path('app_categorie_slug',{'slug': article.categorie.slug}) }}" class="badge bagde-dark bg-secondary text-decoration-none">{{ article.categorie.titre | upper }}</a>{# Chargement paresseux -> Lazy Loading#}
    </div>
     <div>
@@ -20,6 +20,7 @@
                     Anonyme
                     {% endif %}
             </p>
-        <p class="mt-1">{{ commentaire.contenu }} </p>   </div>
+        <p class="mt-1">{{ commentaire.contenu }} </p>
+        <p class="fst-italic">{{ commentaire.createdAt | date("d/m/Y") }}</p></div>
     {% endfor %}</div>
 {% endblock %}
