@@ -13,14 +13,16 @@
     <h3 class="mt-5">Commentaires ( {{ article.commentaires.count }} )</h3>
 <div class="row mt-3">
     {% for commentaire in article.commentaires %}
-        <div class="col-6"><p class="h5 fst-bolder">
+        <div class="col-6">
+            <p class="h5 fst-bolder">
                 {% if commentaire.utilisateur is not empty %}
                 {{ commentaire.utilisateur.pseudo | upper}}
                 {% else %}
                     Anonyme
-                    {% endif %}
+                {% endif %}
             </p>
         <p class="mt-1">{{ commentaire.contenu }} </p>
-        <p class="fst-italic">{{ commentaire.createdAt | date("d/m/Y") }}</p></div>
+        <p class="fst-italic">{{ commentaire.createdAt | date("d/m/Y") }}</p>
+        </div>
     {% endfor %}</div>
 {% endblock %}
