@@ -88,10 +88,12 @@ class ArticleController extends AbstractController
         $formCommentaire->handleRequest($request);
 
         if($formCommentaire->isSubmitted() && $formCommentaire->isValid()){
+
             $commentaire
                 ->setCreatedAt(new \DateTime())
                 ->setArticle($article)
             ;
+
 
             $this->commentaireRepository->add($commentaire,true);
             return $this->redirectToRoute("app_articles");

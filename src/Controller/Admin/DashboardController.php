@@ -37,6 +37,8 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
+
+        yield MenuItem::linkToUrl('Retour', 'fa fa-close',$this->generateUrl('app_accueil'));
 //créer section :
         yield MenuItem::section('articles');
         //créer sous menu
