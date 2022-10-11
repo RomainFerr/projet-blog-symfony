@@ -1,0 +1,17 @@
+{#
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Comm{% endblock %}
+
+{% block body %}
+    <h1>Création d'un Commentaire</h1>
+    {{ form_start(formCommentaire) }}
+ {{ form_row(formCommentaire.utilisateur) }}
+ {{ form_row(formCommentaire.contenu) }}
+    <input type="submit" class="btn btn-primary mt-5" value="Ajouter">
+    {{ form_end(formCommentaire) }}
+{% endblock %}
+#}
+
+

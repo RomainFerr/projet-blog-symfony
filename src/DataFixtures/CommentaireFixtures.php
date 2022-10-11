@@ -23,7 +23,7 @@ class CommentaireFixtures extends Fixture implements DependentFixtureInterface
             $commentaire->setContenu($faker->paragraphs(3,true))
                         ->setCreatedAt($faker->dateTimeBetween('-6month'))
                         ->setArticle($this->getReference("article".$numArticle));
-if ($numUser>151) {
+if ($numUser>=151) {
 $commentaire->setUtilisateur(NULL);
 }else{
     $commentaire->setUtilisateur($this->getReference("utilisateur" . $numUser));

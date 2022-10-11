@@ -12,12 +12,23 @@
        {% endif %}
    </div>
     <div>
-    <p>{{ article.contenu }} </p></div>
+    <p>{{ article.contenu | raw}} </p>
+        <a class="text-decoration-none text-white btn btn-info mt-3" href="{{ path('app_articles_modifier',{'slug': article.slug }) }}">Modifier</a>
+    </div>
 
     <h3 class="mt-5">Commentaires ( {{ article.commentaires.count }} )</h3>
 <div class="row mt-3">
+
+
+    {{ form_start(formCommentaire) }}
+    {{ form_row(formCommentaire.utilisateur) }}
+    {{ form_row(formCommentaire.contenu) }}
+    <input type="submit" class="btn btn-primary mt-5" value="Ajouter">
+    {{ form_end(formCommentaire) }}
+
+
     {% for commentaire in article.commentaires %}
-        <div class="col-6">
+        <div class="col-6 mt-4">
             <p class="h5 fst-bolder">
                 {% if commentaire.utilisateur is not empty %}
                 {{ commentaire.utilisateur.pseudo | upper}}
@@ -29,4 +40,5 @@
         <p class="fst-italic">{{ commentaire.createdAt | date("d/m/Y") }}</p>
         </div>
     {% endfor %}</div>
+
 {% endblock %}

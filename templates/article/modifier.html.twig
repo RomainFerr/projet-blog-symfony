@@ -3,28 +3,24 @@
 {% block title %}Nouvel Article{% endblock %}
 
 {% block body %}
-    <h1>Création d'un Article</h1>
+    <h1>Modification de l'article "{{ article.titre }}"</h1>
     {{ form_start(formArticle) }}
     {{ form_row(formArticle.titre,{
         'label' : 'Titre de l\'article', 'attr' : {'placeholder':'Saisir un titre pour l\'article'}, 'help' : "Le titre doit contenir au moins 5 caractères !"
     }) }}
-      {{ form_row(formArticle.contenu,{
+    {{ form_row(formArticle.contenu,{
         'label' : 'Contenu de l\'article', 'attr' : {'placeholder':'Saisir le contenu de l\'article'}, 'help' : 'Le contenu doit posséder plusieurs phrases'
     }) }}
     {{ form_row(formArticle.categorie,{
         'label' : 'Catégorie de l\'article'
     }) }}
     <div class="form-switch">
-    {{ form_row(formArticle.publie,{
-        'label'   : 'Publier directement l\'article'
-    }) }}</div>
-    {#  {{ form_label(formArticle.contenu, 'Contenu', {
-       'label_attr' : {'class':'text-primary'}
-   }) }}
-    {{ form_widget(formArticle.contenu, {'attr': {'placeholder':"yo"}}) }}
-    {{ form_help(formArticle.contenu, {'help':'yo'}) }}#}
+        {{ form_row(formArticle.publie,{
+            'label'   : 'Publier directement l\'article'
+        }) }}</div>
 
-    <input type="submit" class="btn btn-primary mt-5" value="Ajouter">
+
+    <input type="submit" class="btn btn-primary mt-5" value="Modifier">
     {{ form_end(formArticle) }}
 {% endblock %}
 

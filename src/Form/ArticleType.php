@@ -5,8 +5,10 @@ namespace App\Form;
 use App\Entity\Article;
 use App\Entity\Categorie;
 use Doctrine\DBAL\Types\TextType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -19,13 +21,20 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('titre', \Symfony\Component\Form\Extension\Core\Type\TextType::class)
-            ->add('contenu', TextareaType::class)
+            ->add('contenu', CKEditorType::class,[
+                'config' => [
+                    'uiColor' => 'white'
+                ]
+            ])
             ->add('categorie', EntityType::class,[
                 'class'=> Categorie::class,
                 'choice_label' => 'titre',
                 'required'=>false,
                 'placeholder'=>'Aucune Catégorie'
             ])
+            ->add('publie', CheckboxType::class, [
+                'required' => false
+            ]);
         ;
     }
 
