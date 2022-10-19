@@ -32,7 +32,7 @@ class EmailService
         $email->from($emmeteur)
             ->to($destinataire)
             ->subject($objet)
-            ->htmlTemplate( $template)
+            ->htmlTemplate($template)
             ->context(
                 $contexte
             );
