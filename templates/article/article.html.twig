@@ -5,11 +5,13 @@
 {% block body %}
     <h1>{{ article.titre }}</h1>
    <div class="mb-4"> <p class="fst-italic">Créé le : {{ article.createdAt |date("d/m/Y")}}</p>
+
        {% if article.categorie is not empty %}
        <a href="{{ path('app_categorie_slug',{'slug': article.categorie.slug}) }}" class="badge bagde-dark bg-secondary text-decoration-none">{{ article.categorie.titre | upper }}</a>{# Chargement paresseux -> Lazy Loading#}
        {% else %}
            <p class="badge bagde-dark bg-secondary ">Aucune Catégorie</p>
        {% endif %}
+
    </div>
     <div>
     <p>{{ article.contenu | raw}} </p>

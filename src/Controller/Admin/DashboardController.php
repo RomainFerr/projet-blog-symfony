@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Article;
 use App\Entity\Categorie;
+use App\Entity\Contact;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -56,6 +57,11 @@ class DashboardController extends AbstractDashboardController
                 ->setAction(Crud::PAGE_INDEX),
             MenuItem::linkToCrud("Ajouter catégorie", 'fas fa-plus',Categorie::class)
                 ->setAction(Crud::PAGE_NEW)
+        ]);
+        yield MenuItem::section('Contacts');
+        yield MenuItem::subMenu('Actions', 'fa fa-bars') ->setSubItems([
+            MenuItem::linkToCrud("Lister Contact", 'fas fa-eye',Contact::class)
+                ->setAction(Crud::PAGE_INDEX)
         ]);
 
     }

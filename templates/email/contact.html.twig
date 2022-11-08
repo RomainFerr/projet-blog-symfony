@@ -7,13 +7,23 @@
     {{ form_start(formContact) }}
     <div class="row">
         <div class="col-3">
-        {{ form_row(formContact.nom) }}</div>
-        <div class="col-3"> {{ form_row(formContact.prenom) }}</div>
+        {{ form_row(formContact.nom ,{
+            'label'   : 'Entrer votre Nom :'
+        }) }}</div>
+        <div class="col-3"> {{ form_row(formContact.prenom,{
+                'label'   : 'Entrer votre Prénom :'
+            }) }}</div>
 
 
-        <div class="col-6">  {{ form_row(formContact.email) }}  </div>  </div>
-    {{ form_row(formContact.objet) }}
-    {{ form_row(formContact.contenu) }}
+        <div class="col-6">  {{ form_row(formContact.email,{
+                'label'   : 'Entrer votre Email :'
+            }) }}  </div>  </div>
+    {{ form_row(formContact.objet,{
+        'label'   : 'Entrer l\'Objet du mail'
+    }) }}
+    {{ form_row(formContact.contenu,{
+        'label'   : 'Entrer le Contenu du mail'
+    }) }}
 
     <input type="submit" class="btn btn-info text-white mt-5" value="Envoyer">
     {{ form_end(formContact) }}
